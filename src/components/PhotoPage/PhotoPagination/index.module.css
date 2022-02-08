@@ -1,0 +1,47 @@
+.wrapper{
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 30px;
+    user-select: none;
+    position: relative;
+    flex-grow: 1;
+}
+.item{
+    margin-right: 1vw;
+    width: 50px;
+    height: 50px;
+}
+.notActive{
+    text-decoration: none;
+    color: black;
+}
+.active{
+    text-decoration: none;
+    color: dodgerblue;
+}
+.arrowRight{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border: none;
+    width: auto;
+    height: auto;
+    color: dodgerblue;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+.arrowLeft{
+    position: absolute;
+    top: 5px;
+    left: 0;
+    border: none;
+    width: auto;
+    height: auto;
+    color: dodgerblue;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
