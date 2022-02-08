@@ -1,6 +1,7 @@
 import React, {Dispatch, SetStateAction} from 'react';
 import {Photo} from "../../../../model/photo.model";
 import ClearIcon from '@mui/icons-material/Clear';
+import {styled} from "@mui/material";
 interface Props{
     photo: Photo;
     photos: Photo[]
@@ -8,6 +9,19 @@ interface Props{
     setOpen: Dispatch<SetStateAction<boolean>>;
     setModalImage: Dispatch<SetStateAction<string>>;
 }
+
+const DeleteButton = styled('div')({
+    position: 'absolute',
+    top: '10px',
+    right: '17px',
+    cursor: 'pointer',
+    border: 'none',
+    background: 'none',
+    transition: 'all 0.3s',
+    '&:hover': {
+        filter: 'brightness(0.8)'
+    },
+});
 const deleteImage = async (id: number, photos: Photo[], setPhotos: Dispatch<SetStateAction<Photo[]>>): Promise<any> => {
     await fetch(`https://jsonplaceholder.typicode.com/photos/${id}`, {
         method: 'DELETE',
@@ -30,14 +44,13 @@ export const PhotoItem = ({photo, photos, setPhotos, setOpen,setModalImage}: Pro
                     setOpen(true)
                 }}
             />
-            <button
-                style={{position: 'absolute', top: '10px', right: '15px', cursor: 'pointer', border: 'none', background: 'none'}}
+            <DeleteButton
                 onClick={()=> {
                     deleteImage(id, photos, setPhotos)
                 }}
             >
                 <ClearIcon sx={{color: 'red', fontSize: 'large', width: '40px', height: '40px'}}/>
-            </button>
+            </DeleteButton>
         </div>
     );
 };
