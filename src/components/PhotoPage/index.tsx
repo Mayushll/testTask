@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {getData} from "../../service";
+import {getData} from "../../service/getData";
 import PhotoFilter from "./PhotoFilter";
 import {PhotoList} from "./PhotoList";
 import {PhotoPagination} from "./PhotoPagination";
